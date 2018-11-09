@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Container;
 abstract class Seed extends ContainerAwareCommand
 {
     /** @var string **/
-    private $prefix;
+    private $prefix = 'seed';
     /** @var string **/
     private $seedName;
 
@@ -24,20 +24,7 @@ abstract class Seed extends ContainerAwareCommand
     /** @var Container **/
     protected $container;
 
-    /**
-     * __construct.
-     *
-     * @param string $prefix - prefix can be changed through configuration
-     *                       Note: Prefix is in the contructor because we need it in the "configure()" method
-     *                       to build the seed name. The container is not available in the configure state.
-     */
-    public function __construct($prefix, $separator = ':')
-    {
-        $this->prefix = $prefix;
-        $this->separator = $separator;
-
-        parent::__construct();
-    }
+    protected $separator = ':';
 
     /**
      * setSeedName

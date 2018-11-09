@@ -6,6 +6,7 @@ services:
            - '%seed.separator%'
         calls:
             - [ setContainer, [ '@service_container' ] ]
+        public: true
 
     seed.seeds:
         class: 'Soyuka\SeedBundle\Core\Seeds'
@@ -17,11 +18,13 @@ services:
         class: 'Soyuka\SeedBundle\Command\LoadSeedsCommand'
         parent: 'seed.seeds'
         tags: [ { name: 'console.command' } ]
+        public: true
 
     seed.unload_seeds_command:
         class: 'Soyuka\SeedBundle\Command\UnloadSeedsCommand'
         parent: 'seed.seeds'
         tags: [ { name: 'console.command' } ]
+        public: true
 
     seed.extension.skip:
         class: 'Soyuka\SeedBundle\Extensions\Skip'

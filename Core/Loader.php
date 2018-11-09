@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 class Loader extends Container
 {
     use ContainerAwareTrait;
+
     private $prefix;
     private $separator;
 
